@@ -1,0 +1,36 @@
+<idea-plugin>
+  <id>com.gaoxm.test.myplugin</id>
+  <name>HelloPlugin</name>
+  <version>1.0</version>
+  <vendor email="15033910323@163.com" url="https://gaoxiaoming06.github.io/gaoxm/">https://gaoxiaoming06.github.io/gaoxm/</vendor>
+
+  <description>
+    android studio plugin.
+    1、获取当前连接的设备，并弹窗显示(菜单栏-Custom-Show Devices)
+    2、定位至连接设备的当前栈顶页面activity/fragment源码类(右侧工具栏-ADC2)
+  </description>
+
+  <change-notes>plugin change notes.</change-notes>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+  <idea-version since-build="202.0"/>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>org.jetbrains.android</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here-->
+    <toolWindow id="ADC2" icon="/com/gaoxm/plugin/res/plus.png" anchor="right"
+                factoryClass="com.gaoxm.plugin.ToolWindowFactory"/>
+  </extensions>
+
+  <actions>
+    <group id="MyPlugin.SampleMenu" text="Custom Menu" description="Sample menu">
+      <add-to-group group-id="MainMenu" anchor="last"  />
+      <action id="Myplugin.Textboxes" class="com.gaoxm.plugin.HelloAction" text="Show Devices" description="A test menu item" />
+    </group>
+  </actions>
+
+</idea-plugin>
